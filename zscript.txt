@@ -1,0 +1,5 @@
+version "4.2"
+
+#include "zscript/50OMGAmmo.txt"
+#include "zscript/zm69.txt"
+#include "zscript/zm69spawnhandler.txt"

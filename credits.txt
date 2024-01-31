@@ -1,0 +1,6 @@
+code: based on the Liberator from Hideous Destructor
+
+sprites: based on Hideous Destructor, in one way or another.
+Potetobloke for making the reflex-less zm.
+
+sounds: from Juvenile Power Fantasy, i think

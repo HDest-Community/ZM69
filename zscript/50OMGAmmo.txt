@@ -1,0 +1,41 @@
+const HDLD_50OMGMAG = "g10";
+
+const ENC_50OMGMAG_EMPTY = 18;
+const ENC_50OMGMAG_LOADED = 14;
+
+class HD50OMGMag : HDMagAmmo
+{
+	default
+	{
+		//$Category "Ammo/Hideous Destructor/"
+		//$Title ".50 OMG Magazine"
+		//$Sprite "OM10A0"
+
+		hdmagammo.maxperunit 10;
+		hdmagammo.roundtype "HD50OMGAmmo";
+		hdmagammo.roundbulk ENC_50OMG_LOADED;
+		hdmagammo.magbulk ENC_50OMGMAG_EMPTY;
+		hdpickup.refid HDLD_50OMGMAG;
+		tag ".50 OMG magazine";
+		inventory.pickupmessage "Picked up a .50 OMG magazine.";
+		scale 0.8;
+	}
+	override string,string,name,double getmagsprite(int thismagamt)
+	{
+		string magsprite=(thismagamt>0)?"OM10A0":"OM10B0";
+		return magsprite,"OGBLA3A7","HD50OMGAmmo",1.7;
+	}
+	override void GetItemsThatUseThis(){
+		itemsthatusethis.push("ZM69Rifle");
+	}
+	states{
+	spawn:
+		OM10 A -1;
+		stop;
+	spawnempty:
+		OM10 B -1{
+			brollsprite=true;brollcenter=true;
+			roll=randompick(0,0,0,0,2,2,2,2,1,3)*90;
+		}stop;
+	}
+}

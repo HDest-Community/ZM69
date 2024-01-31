@@ -1,0 +1,4 @@
+gameinfo
+{
+	addeventhandlers = "zm69spawnhandler"
+}

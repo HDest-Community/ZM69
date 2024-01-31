@@ -1,0 +1,37 @@
+class ZM69SpawnHandler : EventHandler
+{
+    override void CheckReplacement(ReplaceEvent e)
+    {
+        if (!e.Replacement)
+        {
+            return;
+        }
+
+        switch (e.Replacement.GetClassName())
+        {
+            case 'PlasmaReplaces':
+                if (!random(0, 2))
+                {
+                    e.Replacement = "ZM69Random";
+                    e.IsFinal = true;
+                }
+                break;
+            case 'CellRandom':
+                if (!random(0, 7))
+                {
+                    e.Replacement = random(0, 2) ? "HD50OMGMag" : "HD50OMGBoxPickup";
+                    e.IsFinal = true;
+                }
+                break;
+        }
+    }
+	
+	override void WorldThingSpawned(WorldEvent e)
+	{
+		let ZM69Ammo = HD50OMGAmmo(e.Thing);
+		if (ZM69Ammo)
+		{
+			ZM69Ammo.ItemsThatUseThis.Push("ZM69Rifle");
+		}
+	}
+}
